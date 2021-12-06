@@ -23,3 +23,9 @@ ExecJS::RuntimeUnavailable:
  ```
 
 Rails requires a Javascript runtime to work. The easiest way is to install Node by running `brew install node` - and then run `bundle exec rspec` again
+
+
+
+
+
+[Trello board](https://trello.com/b/ynM7GF5J/pizza-acebook-board)
