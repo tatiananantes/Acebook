@@ -1,10 +1,10 @@
 <p><%=@post.user%>: <%=@post.message%></p>
 <h2>Comments</h2>
-  <% @post.comments.each do |comment| %>
+  <% @post.comments.reverse.each do |comment| %>
     <p><%= comment.user %>: <%= comment.body %></p>
   <% end %>
   <h2>Add a comment:</h2>
-  <%= form_with model: [ @post, @post.comments.build ], method: :put, remote: true do |form| %>
+  <%= form_with model: [ @post, @post.comments.build ] do |form| %>
     <p>
       <%= form.label :user %><br>
       <%= form.text_field :user %>
