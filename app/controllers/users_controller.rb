@@ -5,12 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to users_url
-
-    # if @user.save
-    # else
-    #   render :new
-    # end
+    
+    if @user.save
+      redirect_to users_url
+    else
+      render :new
+    end
   end
 
   def index
