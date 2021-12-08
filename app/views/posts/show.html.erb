@@ -4,7 +4,7 @@
     <p><%= comment.user %>: <%= comment.body %></p>
   <% end %>
   <h2>Add a comment:</h2>
-  <%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <%= form_with model: [ @post, @post.comments.build ], method: :put, remote: true do |form| %>
     <p>
       <%= form.label :user %><br>
       <%= form.text_field :user %>
