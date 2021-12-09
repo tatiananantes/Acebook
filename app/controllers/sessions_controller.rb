@@ -15,12 +15,25 @@ class SessionsController < ApplicationController
         redirect_to login_path, notice: message
       
       end
-
-      def destroy
-        session[:user_id] = nil
-        redirect_to '/login'
-        end
     end
-  
+
+
+      # def destroy
+      #   session[:user_id].destroy
+      #   redirect_to '/login'
+      # end
+      
+      def destroy
+        session.clear
+        redirect_to login_path
+    end
+
+    # Logs out the current user.
+
+    #   def log_out
+    #     session.delete(:user_id)
+    #     @user = nil
+    #   end
+    # end
   
   end
