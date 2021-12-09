@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   end
 
   def create
+    @user = User.find_by_id(session[:user_id])
+    p @user
     @post = Post.create(post_params)
+    p @post
     redirect_to @post
   end
 
@@ -19,6 +22,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message, :user)
+    @user = User.find_by_id(session[:user_id])
+    p @user
+    params.require(:post).permit(:message, @user.username, @user.id)
   end
+
+
 end
