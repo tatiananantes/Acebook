@@ -1,5 +1,5 @@
 <% @posts.reverse.each do |post| %>
-  <p><%=post.user%>: <%=post.message%></p>
+  <p><%=post.user.username %>: <%=post.message%></p>
   <%= link_to "View comments", post %>
 <% end %>
 
