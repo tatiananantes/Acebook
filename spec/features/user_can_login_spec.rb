@@ -16,6 +16,19 @@ scenario "A user can log in to their account" do
   
   end
 
+  scenario "User can not login with incorrect details" do
+
+    visit "/login"
+    fill_in "username", with: "Doris"
+    fill_in "password", with: "password22"
+    click_button "Log in"
+
+    expect(page).to have_content("Something went wrong! Login failed!")
+  
+  end
+
+
+
 end
 
   
