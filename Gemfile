@@ -38,6 +38,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 4.0'
   gem 'bcrypt'
+  gem 'simplecov'
 end
 
 group :development do

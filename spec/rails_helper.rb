@@ -54,4 +54,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  # SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  #   SimpleCov::Formatter::Console
+  # ])
+  # SimpleCov.start
 end
