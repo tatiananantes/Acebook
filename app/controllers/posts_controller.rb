@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+  
+  before_action :find_user
+  
   def new
-    @user = User.find_by_id(session[:user_id])
     @post = Post.new 
   end
 
     def create
-      @user = User.find_by_id(session[:user_id])
       Post.create(post_params.merge(user_id: @user.id))
       redirect_to posts_path
     end
@@ -21,8 +22,12 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    @user = User.find_by_id(session[:user_id])
+    
     params.require(:post).permit(:message)
+  end
+
+  def find_user
+    @user = User.find_by_id(session[:user_id])
   end
 
 

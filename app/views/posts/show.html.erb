@@ -2,15 +2,12 @@
 
 <h2>Comments</h2>
   <% @post.comments.reverse.each do |comment| %>
-    <p><%= comment.user %>: <%= comment.body %></p>
+    <p><%= comment.user.username %>: <%= comment.body %></p>
   <% end %>
 
   <h2>Add a comment:</h2>
   <%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
-    <p>
-      <%= form.label :user %><br>
-      <%= form.text_field :user %>
-    </p>
+   
     <p>
       <%= form.label :body %><br>
       <%= form.text_area :body %>
