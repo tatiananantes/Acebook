@@ -21,8 +21,10 @@ scenario "Can sign up and have an account" do
     click_button "Create Account"
 
     expect(page).to have_content("Password is too short (minimum is 10 characters)")
-  
+   
   end
+
+  
 
 
 
