@@ -1,0 +1,18 @@
+.profile-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p span {
+    font-weight: 600;
+  }
+  img {
+    height: 40px;
+    width: 40px;
+    line-height: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-right: 15px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
