@@ -1,4 +1,7 @@
 <p><%=@post.message%></p>
+ <% if @post.image.attached? %>
+  <%= image_tag @post.image %>
+  <%end%>
 
 <h2>Comments</h2>
   <% @post.comments.reverse.each do |comment| %>
