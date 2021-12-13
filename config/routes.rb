@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts do
     resources :comments
+    resources :likes  
   end
 
   get '/login', to: 'sessions#login'

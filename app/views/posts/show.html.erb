@@ -20,8 +20,5 @@
     </p>
 <% end %>
 
-<% if @post.liked?(current_user) %>
-  <%= button_to "Like", like_path(@post), method: "put", disable: true %>
-<% else %>
-  <%= button_to "Like", like_path(@post), method: "put" %>
-<% end %>
+<%= button_to 'Like', post_likes_path(@post), method: :post %>
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
