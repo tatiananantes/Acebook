@@ -19,14 +19,16 @@ gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'image_processing'
+gem 'mini_magick'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -39,6 +41,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0'
   gem 'bcrypt'
   gem 'simplecov'
+  gem 'bootstrap', '~> 5.1.3'
+  gem 'jquery-rails'
 end
 
 group :development do

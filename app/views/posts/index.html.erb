@@ -1,9 +1,16 @@
 <% @posts.reverse.each do |post| %>
-  <p><%=post.user.username %>: <%=post.message%></p>
+
+  <div class="profile-holder">
+    <% if post.user.avatar.attached? %>
+      <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
+    <%end%>
+    <p><span><%=post.user.username %></span> posted</p>
+  </div>
+  <p><%=post.message%></p>
   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
   <% if post.image.attached? %>
-  <%= image_tag post.image %>
+    <%= image_tag post.image %>
   <%end%>
   <%= link_to "View comments", post %>
 <% end %>

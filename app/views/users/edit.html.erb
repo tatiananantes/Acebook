@@ -1,4 +1,5 @@
- <h1> Please Sign Up </h1>
+<% if @user.id == session[:user_id]%>
+<h1> Edit your account details below: </h1>
 
 <%= form_for @user do |form| %>
   <div>
@@ -31,6 +32,12 @@
   </div>
 
   <div>
-    <%= form.submit "Create Account" %>
+    <%= form.submit "Update Account" %>
   </div>
 <% end %>
+
+<%else%>
+
+<h1> Unauthorised access </h1>
+
+<%end%>

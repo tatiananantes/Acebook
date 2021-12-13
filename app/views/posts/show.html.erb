@@ -5,7 +5,13 @@
 
 <h2>Comments</h2>
   <% @post.comments.reverse.each do |comment| %>
-    <p><%= comment.user.username %>: <%= comment.body %></p>
+    <div class="profile-holder">
+      <% if comment.user.avatar.attached? %>
+        <%= image_tag comment.user.avatar.variant(resize_to_limit: [100, 100]) %>
+      <%end%>
+      <p><span><%= comment.user.username %></span> commented:</p>
+    </div>
+    <p><%= comment.body %></p>
   <% end %>
 
   <h2>Add a comment:</h2>
