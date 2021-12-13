@@ -3,7 +3,7 @@
     <% if post.user.avatar.attached? %>
       <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
     <%end%>
-    <%=post.user.username %>
+    <p><span><%=post.user.username %></span> posted</p>
   </div>
   <p><%=post.message%></p>
   <% if post.image.attached? %>
