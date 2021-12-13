@@ -1,7 +1,7 @@
 <% @posts.reverse.each do |post| %>
   <p><%=post.user.username %>: <%=post.message%></p>
   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-  
+  <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
   <% if post.image.attached? %>
   <%= image_tag post.image %>
   <%end%>

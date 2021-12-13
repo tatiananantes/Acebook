@@ -20,5 +20,6 @@
     </p>
 <% end %>
 
-<%= button_to 'Like', post_likes_path(@post), method: :post %>
+
 <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+<%= form_with model: [ @post, @post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
