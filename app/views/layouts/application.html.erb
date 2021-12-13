@@ -12,24 +12,29 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/users/new">ACEBOOK</a>
+    <a class="navbar-brand" href="">ACEBOOK</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+  <% if logged_in? %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/login">Login</a>
+          <a class="nav-link active" aria-current="page" href="<%=logout_path%>">Logout</a>
+        </li>
+  <% else %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%=login_path%>">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="users/new">Sign Up</a>
+          <a class="nav-link" href="<%=users_path%>">Sign Up</a>
         </li>
-        
-        
-      </ul>
-      
+      </ul> 
     </div>
+  <% end %>
   </div>
 </nav>
 
