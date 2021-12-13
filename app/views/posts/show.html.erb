@@ -19,3 +19,9 @@
       <%= form.submit %>
     </p>
 <% end %>
+
+<% if @post.liked?(current_user) %>
+  <%= button_to "Like", like_path(@post), method: "put", disable: true %>
+<% else %>
+  <%= button_to "Like", like_path(@post), method: "put" %>
+<% end %>
