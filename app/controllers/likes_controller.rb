@@ -7,7 +7,7 @@ def create
     flash[:alert] = "You can't like more than once"
   else
     @post.likes.create(user_id: @user.id)
-    flash[:alert] = 'Liked!'
+    flash[:alert] = "Liked!"
   end
   redirect_to posts_path(@post)
   end
