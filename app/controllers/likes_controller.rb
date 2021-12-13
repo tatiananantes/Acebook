@@ -4,10 +4,10 @@ class LikesController < ApplicationController
   
 def create
   if already_liked?
-    flash[:notice] = "You can't like more than once"
+    flash[:alert] = "You can't like more than once"
   else
     @post.likes.create(user_id: @user.id)
-    flash[:success] = 'Liked!'
+    flash[:alert] = 'Liked!'
   end
   redirect_to posts_path(@post)
   end
