@@ -1,7 +1,7 @@
 <% @posts.reverse.each do |post| %>
   <div class="profile-holder">
     <% if post.user.avatar.attached? %>
-      <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]).processed.url %>
+      <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
     <%end%>
     <%=post.user.username %>
   </div>
