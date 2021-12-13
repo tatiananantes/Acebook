@@ -26,6 +26,11 @@
   </div>
 
   <div>
+    <%= form.label :avatar, "Choose a profile picture" %>
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div>
     <%= form.submit "Create Account" %>
   </div>
 <% end %>
