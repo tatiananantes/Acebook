@@ -9,8 +9,9 @@ def create
     @post.likes.create(user_id: @user.id)
     flash[:alert] = "Liked!"
   end
-  redirect_to posts_path(@post)
+  redirect_to request.referrer
   end
+
 
   private
   def find_post

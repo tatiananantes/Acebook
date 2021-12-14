@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :posts
   has_many :comments
-
+  acts_as_favoritor
   has_many :likes
 
   has_one_attached :avatar
