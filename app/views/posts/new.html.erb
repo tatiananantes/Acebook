@@ -1,12 +1,24 @@
+<div class="center-block">
+  <div class="form-group-wrap">
+
+<h1> What's on your mind? </h1>
 <%= form_for @post do |form| %>
   
-  
-  <%= form.label :message %>
-  <%= form.text_field :message %>
+  <div class="form-group">
+    <%= form.label :message, class: "control-label"%>
+    <%= form.text_area :message,  class:"form-control" %>
+  </div>
 
-  <%= form.label :image %>
-  <%= form.file_field :image %>
+  <div class="form-group">
+    <%= form.label :image, class: "control-label"%>
+    <%= form.file_field :image,  class:"form-control" %>
+  </div>
 
+  <div class="form-group">
+  <%= form.submit "Create!", class: "btn btn-primary" %>
+  </div>
 
-  <%= form.submit "Submit" %>
 <% end %>
+
+</div>
+</div>

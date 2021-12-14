@@ -1,4 +1,11 @@
-<% @posts.reverse.each do |post| %>
+<div class="center-block" >
+
+<div class="text-right">
+<%= link_to "Create Post", new_post_path, :class => "btn btn-primary"%>
+</div>
+
+<% @posts.reverse.each do |post| %> 
+<div class="post bg-white">
 
   <div class="profile-holder">
     <% if post.user.avatar.attached? %>
@@ -13,14 +20,13 @@
     <%= image_tag post.image %>
   <%end%>
   <%= link_to "View comments", post %>
+  </div>
 <% end %>
 
-
-<p><%= link_to new_post_path do %>
-  New post
-<% end %></p>
 
 <%= form_tag '/login' do %>
 <%= submit_tag "Logout" %>
+
 <% end %>
 
+</div>

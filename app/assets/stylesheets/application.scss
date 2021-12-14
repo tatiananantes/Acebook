@@ -44,3 +44,9 @@ body {
     margin-top: 20px;
   }
 }
+
+.text-right{
+  @include media-breakpoint-up(sm) {
+  text-align: right;
+  }
+}
