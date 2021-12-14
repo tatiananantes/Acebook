@@ -10,7 +10,7 @@
           <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
         <%end%>
         <p class="profile-name"><a href="/users/<%=post.user.id %>"><%=post.user.username %></a> <br />
-        Posted <%= post.updated_at.strftime("%C %B %G at %R") %></p>
+        Posted <%= post.created_at.strftime("%d %B %G at %R") %></p>
       </div>
       <div class="post-body">
         <p><%=post.message%></p>
@@ -25,7 +25,7 @@
         </div>
         <div>
           <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
-          <%= button_to "Comment", post, class: "btn btn-secondary" %>
+          <%= link_to "Comment", post_path(post), class: "btn btn-secondary" %>
         </div>
       </div>
     </div>

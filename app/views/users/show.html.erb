@@ -11,7 +11,7 @@
       <%end%>
       <div>
         <h1 class="h3"> <%= @user.username %> </h1>
-        <p>Member since: <%= @user.created_at.strftime("%B %G") %></p>
+        <p>Member since: <%= @user.created_at.strftime("%d %G") %></p>
         <% if @user.id == session[:user_id]%>
           <%= link_to "Edit details", edit_user_path(@user) %>
         <%end%>
@@ -42,7 +42,7 @@
           </div>
           <div>
             <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
-            <%= button_to "Comment", post, class: "btn btn-secondary" %>
+            <%= link_to "Comment", post_path(post), class: "btn btn-secondary" %>
           </div>
         </div>
       </div>
