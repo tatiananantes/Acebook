@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if !!@user && @user.authenticate(params[:password])
 
         session[:user_id] = @user.id
-        redirect_to users_path
+        redirect_to user_path(@user)
       else
 
         message = "Something went wrong! Login failed!"

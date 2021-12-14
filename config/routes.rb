@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#delete'
   delete '/logout', to: 'sessions#delete'
   get '/logout', to: 'sessions#delete'
+  get '/users/:id', to: 'users#show'
 end

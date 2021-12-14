@@ -3,7 +3,12 @@
 
 $brand-primary: #4376d4;
 
-html, body {
+.soft-top {
+  padding-top: 20px;
+}
+
+html,
+body {
   height: 100%;
 }
 
@@ -18,7 +23,7 @@ html, body {
 .site-main-wrap {
   background: #f7f7f7;
   padding: 80px 0 40px;
-  display: block;  
+  display: block;
   height: 100%;
 }
 
