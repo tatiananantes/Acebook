@@ -1,29 +1,55 @@
-<div class="profile-holder">
-    <% if @user.avatar.attached? %>
-      <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]) %>
-      <p> <%= @user.username %>  </p>
-    <%end%>
+
+
+
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="profile-main">
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar.variant(resize_to_limit: [200, 200]) %>
+      <%end%>
+      <div>
+        <h1 class="h3"> <%= @user.username %> </h1>
+        <p>Member since: <%= @user.created_at.strftime("%B %G") %></p>
+        <% if @user.id == session[:user_id]%>
+          <%= link_to "Edit details", edit_user_path(@user) %>
+        <%end%>
+      </div>
+
+    </div>
   </div>
-
-
-<%= link_to "Edit details", edit_user_path(@user) %>
-
-
-
-<% @user.posts.reverse.each do |post| %>
-
-  <div class="profile-holder">
-    <% if post.user.avatar.attached? %>
-      <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
-    <%end%>
-    <p><span><%=post.user.username %></span> posted</p>
+  <div class="col-sm-8">
+    <% @user.posts.reverse.each do |post| %>
+      <div class="post bg-white">
+        <div class="profile-holder post-heading">
+          <% if post.user.avatar.attached? %>
+            <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
+          <%end%>
+          <p class="profile-name"><a href="/users/<%=post.user.id %>"><%=post.user.username %></a> <br />
+          Posted <%= post.updated_at.strftime("%C %B %G at %R") %></p>
+        </div>
+        <div class="post-body">
+          <p><%=post.message%></p>
+          <% if post.image.attached? %>
+            <%= image_tag post.image.variant(resize_to_limit: [1200, 630]) %>
+          <%end%>
+        </div>
+        <div class="post-footer">
+          <div>
+            <span><%= post.comments.count %> <i class="bi bi-chat-text"></i> </span>
+            <span><%= post.likes.count %> <i class="bi bi-hand-thumbs-up"></i> </span>
+          </div>
+          <div>
+            <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
+            <%= button_to "Comment", post, class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <p><%=post.message%></p>
-  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-  <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
-  <% if post.image.attached? %>
-    <%= image_tag post.image %>
-  <%end%>
-  <%= link_to "View comments", post %>
-<% end %>
+</div>
+
+
+
 
