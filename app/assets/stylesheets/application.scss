@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "posts";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
 
 $brand-primary: #4376d4;
 
@@ -9,7 +10,7 @@ $brand-primary: #4376d4;
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
 .navbar.bg-light {
