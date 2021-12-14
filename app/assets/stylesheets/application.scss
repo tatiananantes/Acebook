@@ -1,1 +1,41 @@
 @import "bootstrap";
+@import "posts";
+
+$brand-primary: #4376d4;
+
+html, body {
+  height: 100%;
+}
+
+.navbar.bg-light {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  color: white;
+}
+
+.site-main-wrap {
+  background: #f7f7f7;
+  padding: 80px 0 40px;
+  display: block;  
+  height: 100%;
+}
+
+.form-group-wrap {
+  background: white;
+  border-radius: 8px;
+  margin: 0 auto;
+  width: 90vw;
+  box-shadow: 0 3px 6px -5px;
+  @include media-breakpoint-up(sm) {
+    width: 60vw;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 40vw;
+  }
+  padding: 20px 30px;
+  .form-group {
+    margin-top: 20px;
+  }
+}
