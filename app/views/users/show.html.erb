@@ -1,1 +1,9 @@
-<h1>Hello world</h1>
+<div class="profile-holder">
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]) %>
+      <p> <%= @user.username %>  </p>
+    <%end%>
+  </div>
+
+
+<%= link_to "Edit details", edit_user_path(@user) %>
