@@ -1,1 +1,29 @@
-<h1>Hello world</h1>
+<div class="profile-holder">
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]) %>
+      <p> <%= @user.username %>  </p>
+    <%end%>
+  </div>
+
+
+<%= link_to "Edit details", edit_user_path(@user) %>
+
+
+
+<% @user.posts.reverse.each do |post| %>
+
+  <div class="profile-holder">
+    <% if post.user.avatar.attached? %>
+      <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
+    <%end%>
+    <p><span><%=post.user.username %></span> posted</p>
+  </div>
+  <p><%=post.message%></p>
+  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+  <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
+  <% if post.image.attached? %>
+    <%= image_tag post.image %>
+  <%end%>
+  <%= link_to "View comments", post %>
+<% end %>
+
