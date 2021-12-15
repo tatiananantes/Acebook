@@ -58,10 +58,10 @@
 .post-container {
   width: 90vw;
   margin: 0 auto;
-  @include media-breakpoint-up(sm) {
+  @media (min-width: 768px) {
     width: 60vw;
   }
-  @include media-breakpoint-up(lg) {
+  @media (min-width: 1200px) {
     width: 45vw;
   }
 }
