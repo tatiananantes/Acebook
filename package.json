@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {},
   "engines": {
-    "node": "17.20.0",
+    "node": "16.13.1",
     "yarn": "1.22.17"
   }
 }
