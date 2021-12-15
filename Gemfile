@@ -41,7 +41,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0'
   gem 'bcrypt'
   gem 'simplecov'
-  gem 'bootstrap', '~> 5.1.3'
   gem 'jquery-rails'
   gem 'acts_as_favoritor'
 end
