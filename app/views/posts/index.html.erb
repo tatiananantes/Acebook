@@ -1,32 +1,34 @@
-<div class="center-block" >
-
-<div class="text-right">
-<%= link_to "Create Post", new_post_path, :class => "btn btn-primary"%>
-</div>
-
-<% @posts.reverse.each do |post| %> 
-<div class="post bg-white">
-
-  <div class="profile-holder">
-    <% if post.user.avatar.attached? %>
-      <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
-    <%end%>
-    <p><span><%=post.user.username %></span> posted</p>
+<div class="center-block post-container" >
+  <div class="text-right">
+    <%= link_to "Create Post", new_post_path, :class => "btn btn-primary"%>
   </div>
-  <p><%=post.message%></p>
-  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-  <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
-  <% if post.image.attached? %>
-    <%= image_tag post.image %>
-  <%end%>
-  <%= link_to "View comments", post %>
-  </div>
-<% end %>
 
+  <% @posts.reverse.each do |post| %>
+    <div class="post bg-white">
+      <div class="profile-holder post-heading">
+        <% if post.user.avatar.attached? %>
+          <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]) %>
+        <%end%>
+        <p class="profile-name"><a href="/users/<%=post.user.id %>"><%=post.user.username %></a> <br />
+        Posted <%= post.created_at.strftime("%d %B %G at %R") %></p>
+      </div>
+      <div class="post-body">
+        <p><%=post.message%></p>
+        <% if post.image.attached? %>
+          <%= image_tag post.image.variant(resize_to_limit: [1200, 630]) %>
+        <%end%>
+      </div>
+      <div class="post-footer">
+        <div>
+          <span><%= post.comments.count %> <i class="bi bi-chat-text"></i> </span>
+          <span><%= post.likes.count %> <i class="bi bi-hand-thumbs-up"></i> </span>
+        </div>
+        <div>
+          <%= form_with model: [ post, post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>
+          <%= link_to "Comment", post_path(post), class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<%= form_tag '/login' do %>
-<%= submit_tag "Logout" %>
-
-<% end %>
-
-</div>
+</div>ß
