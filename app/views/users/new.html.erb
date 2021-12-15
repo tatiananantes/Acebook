@@ -1,7 +1,9 @@
  <div class="row">
   
   <div class="col-sm-4 col-lg-5">
-    <%= image_tag("acebook_homepage.png", width: 400, :class=> "img-fluid") %>
+    
+    <h1 class="title"> <span>Welcome to</span> Acebook </h1>
+    <%= image_tag("acebook_homepage.png", width: 400, :class=>"img-fluid") %>
 
    
   </div>
@@ -10,37 +12,37 @@
   <h2> Please Sign Up </h2>
 
   <%= form_for @user do |form| %>
-    <div class="form-group-wrap">
-      <%= form.label :username%><br>
+    <div class="form-group">
+      <%= form.label :username, class:"control-label"%><br>
       <%= form.text_field :username, class: "form-control"%>
       <% @user.errors.full_messages_for(:username).each do |message| %>
         <div><%= message %></div>
       <% end %>
     </div>
   
-    <div class="form-group-wrap">
-      <%= form.label :email %><br>
+    <div class="form-group">
+      <%= form.label :email, class:"control-label" %><br>
       <%= form.email_field :email, class: "form-control" %>
       <% @user.errors.full_messages_for(:email).each do |message| %>
         <div><%= message %></div>
       <% end %>
     </div>
   
-    <div class="form-group-wrap">
-      <%= form.label :password %><br>
+    <div class="form-group">
+      <%= form.label :password, class:"control-label" %><br>
       <%= form.password_field :password, class: "form-control"  %>
       <% @user.errors.full_messages_for(:password).each do |message| %>
         <div><%= message %></div>
       <% end %>
     </div>
   
-    <div class="form-group-wrap">
-      <%= form.label :avatar, "Choose a profile picture" %>
+    <div class="form-group">
+      <%= form.label :avatar, "Choose a profile picture", class:"control-label" %>
       <%= form.file_field :avatar, class: "form-control"  %>
     </div>
   
-    <div class="form-group-wrap">
-      <%= form.submit "Create Account", class:"btn btn-primary" %>
+    <div class="form-group">
+      <%= form.submit "Create Account", class: "btn btn-primary" %>
     </div>
   <% end %>
   </div>

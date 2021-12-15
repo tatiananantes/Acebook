@@ -61,3 +61,13 @@ body {
     text-align: right;
   }
 }
+
+.title {
+  font-size: 3.6vw;
+  font-weight: 700;
+  padding-bottom: 20px;
+  span {
+    display: block;
+    font-size: 68%;
+  }
+}
