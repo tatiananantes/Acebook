@@ -1,7 +1,22 @@
-<p><%=@post.message%></p>
- <% if @post.image.attached? %>
-  <%= image_tag @post.image %>
-  <%end%>
+<div class="center-block post-container" >
+  <div class="post bg-white">
+    <div class="profile-holder post-heading">
+      <% if @post.user.avatar.attached? %>
+        <%= image_tag @post.user.avatar.variant(resize_to_limit: [100, 100]) %>
+      <%end%>
+      <p class="profile-name"><a href="/users/<%=@post.user.id %>"><%=@post.user.username %></a> <br />
+      Posted <%= @post.created_at.strftime("%d %B %G at %R") %></p>
+    </div>
+    <div class="post-body">
+      <p><%=@post.message%></p>
+      <% if @post.image.attached? %>
+        <%= image_tag @post.image.variant(resize_to_limit: [1200, 630]) %>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+
 
 <h2>Comments</h2>
   <% @post.comments.reverse.each do |comment| %>

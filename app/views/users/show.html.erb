@@ -4,7 +4,7 @@
 
 
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-sm-4 col-lg-5">
     <div class="profile-main">
       <% if @user.avatar.attached? %>
         <%= image_tag @user.avatar.variant(resize_to_limit: [200, 200]) %>
@@ -19,7 +19,7 @@
 
     </div>
   </div>
-  <div class="col-sm-8">
+  <div class="col-sm-8 col-lg-7">
     <% @user.posts.reverse.each do |post| %>
       <div class="post bg-white">
         <div class="profile-holder post-heading">
