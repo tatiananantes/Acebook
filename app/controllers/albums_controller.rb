@@ -2,28 +2,28 @@ class AlbumsController < ApplicationController
   before_action :find_user
   
   def new
-    @post = Post.new 
+    @album = Album.new 
   end
 
     def create
-      Post.create(post_params.merge(user_id: session[:user_id]))
-      redirect_to posts_path
+      Album.create(album_params.merge(user_id: session[:user_id]))
+      redirect_to user_albums_path
     end
 
   def index
-    @posts = Post.all
+    @album = @user.albums.all
   end
 
   def show
-    @post = Post.find(params[:id])
+    @album = @user.albums.find(params[:id])
   end
 
 
 
   private
 
-  def post_params
-    params.require(:post).permit(:message, :image)
+  def album_params
+    params.require(:album).permit(:name)
   end
 
   def find_user

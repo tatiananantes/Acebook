@@ -15,6 +15,15 @@
         <% if @user.id == session[:user_id]%>
           <%= link_to "Edit details", edit_user_path(@user) %>
         <%end%>
+        
+        <% @user.albums.reverse.each do |album| %>
+        <p><a href="/users/<%=@user.id%>/albums/<%=album.id%>"><%= album.name%></p></a>
+        <%end%>
+
+        <% if @user.id == session[:user_id]%>
+          <%= link_to "Create album", new_user_album_path(@user) %>
+        <%end%>
+
       </div>
 
     </div>

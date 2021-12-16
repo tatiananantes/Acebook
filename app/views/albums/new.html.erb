@@ -2,7 +2,7 @@
   <div class="form-group-wrap">
 
 <h1> What's the name of your album? </h1>
-<%= form_for @album do |form| %>
+<%= form_with model: [ @user, @user.albums.build ], local: true do |form| %>
   
   <div class="form-group">
     <%= form.label :name, class: "control-label"%>

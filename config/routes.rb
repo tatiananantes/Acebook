@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   root "users#new"
-  resources :users
+  resources :users do
+    resources :albums do
+      resources :photos
+    end
+  end
+
   resources :posts do
     resources :comments, :likes 
   end
 
-  resources :albums do
-    resources :photos
-  end
+ 
 
   resources :photos do
     resources :comments, :likes 
