@@ -13,34 +13,40 @@
         <%= image_tag @post.image.variant(resize_to_limit: [1200, 630]) %>
       <%end%>
     </div>
+    <div class="post-footer soft-bottom">
+      <div>
+        <span><%= @post.comments.count %> <i class="bi bi-chat-text"></i> </span>
+        <span><%= @post.likes.count %> <i class="bi bi-hand-thumbs-up"></i> </span>
+      </div>
+    </div>
+    <div class="reverse-column">
+      <div>
+        <h2 class="h4 soft-bottom"><%= @post.comments.count %> <%= (@post.comments.count) == 1 ? 'Comment' : 'Comments'%></h2>
+        <% @post.comments.reverse.each do |comment| %>
+          <div class="comment">
+            <div class="profile-holder post-heading">
+              <% if comment.user.avatar.attached? %>
+                <%= image_tag comment.user.avatar.variant(resize_to_limit: [100, 100]) %>
+              <%end%>
+              <p class="profile-name"><a href="/users/<%=comment.user.id %>"><%=comment.user.username %></a> <br />
+        Commented <%= comment.created_at.strftime("%d %B %G at %R") %></p>
+            </div>
+            <p><%= comment.body %></p>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
+          <div class="form-group">
+            <%= form.text_area :body, class: "form-control form-control-tall"%>
+          </div>
+          <div class="form-group">
+            <%= form.submit "Add comment", class: "btn btn-primary mg-l-auto" %>
+          </div>
+        <% end %>
+        <hr>
+      </div>
+    </div>
   </div>
 </div>
 
-
-
-<h2>Comments</h2>
-  <% @post.comments.reverse.each do |comment| %>
-    <div class="profile-holder">
-      <% if comment.user.avatar.attached? %>
-        <%= image_tag comment.user.avatar.variant(resize_to_limit: [100, 100]) %>
-      <%end%>
-      <p><span><%= comment.user.username %></span> commented:</p>
-    </div>
-    <p><%= comment.body %></p>
-  <% end %>
-
-  <h2>Add a comment:</h2>
-  <%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
-   
-    <p>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
-<% end %>
-
-
-<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-<%= form_with model: [ @post, @post.likes.create ], local: true do |form| %> <%= form.submit "Like", class: "btn btn-primary" %> <% end %>

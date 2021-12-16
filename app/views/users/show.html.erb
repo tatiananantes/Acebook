@@ -11,15 +11,30 @@
       <%end%>
       <div>
         <h1 class="h3"> <%= @user.username %> </h1>
-        <p>Member since: <%= @user.created_at.strftime("%d %G") %></p>
+        <p>Member since: <%= @user.created_at.strftime("%d %B %G") %></p>
         <% if @user.id == session[:user_id]%>
           <%= link_to "Edit details", edit_user_path(@user) %>
         <%end%>
+        
+        <% @user.albums.reverse.each do |album| %>
+        <p><a href="/users/<%=@user.id%>/albums/<%=album.id%>"><%= album.name%></p></a>
+        <%end%>
+
+        <% if @user.id == session[:user_id]%>
+          <%= link_to "Create album", new_user_album_path(@user) %>
+        <%end%>
+
       </div>
 
     </div>
   </div>
   <div class="col-sm-8 col-lg-7">
+    <% if @user.posts.count == 0 %>   
+      <div class="text-center">    
+        <h2 class="soft-bottom soft-top">Looks like you have yet to post anything.</h2>
+        <%= link_to "Join the conversation", posts_path, class: "btn btn-primary" %>
+      </div>
+    <% end %>
     <% @user.posts.reverse.each do |post| %>
       <div class="post bg-white">
         <div class="profile-holder post-heading">

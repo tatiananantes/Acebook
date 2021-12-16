@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :comments
   acts_as_favoritor
   has_many :likes
+  has_many :albums
+  has_many :photos
 
   has_one_attached :avatar
 

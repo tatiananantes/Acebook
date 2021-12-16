@@ -65,3 +65,29 @@
     width: 45vw;
   }
 }
+
+.reverse-column {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+textarea.form-control {
+  height: 100px;
+}
+
+.mg-l-auto {
+  display: block;
+  margin: 20px 0 20px auto;
+}
+
+.comment {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  p {
+    margin: 0;
+  }
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
