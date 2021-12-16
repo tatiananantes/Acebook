@@ -77,3 +77,44 @@ body {
     font-weight: 500;
   }
 }
+
+#flash {
+  .flash.alert {
+    position: fixed;
+    bottom: 5%;
+    background: rgba(67,118,212, 0.8);
+    margin: 0 auto;
+    width: 40vw;
+    left: 30vw;
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 20px;
+    animation-name: disappear;
+    opacity: 0;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+  }
+}
+
+.navbar-flex {
+  @media (min-width: 768px) {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .inline-items {
+      .nav-link {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+
+@keyframes disappear {
+  0% {opacity: 1;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
