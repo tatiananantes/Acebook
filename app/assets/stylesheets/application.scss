@@ -2,13 +2,12 @@
 @import "posts";
 @import "users";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
 
 $brand-primary: #4376d4;
 
 h1 {
-  font-size: calc(1.375rem + 1vw)
+  font-size: calc(1.375rem + 1vw);
 }
 
 .soft-top {
@@ -18,7 +17,7 @@ h1 {
 html,
 body {
   min-height: 100%;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .navbar.bg-light {
@@ -36,11 +35,16 @@ body {
   height: 100%;
 }
 
+.img-padding {
+  padding: 20px 40px;
+}
+
 .form-group-wrap {
   background: white;
   border-radius: 8px;
   margin: 0 auto;
   width: 90vw;
+  max-width: 100%;
   box-shadow: 0 3px 6px -5px;
   @media (min-width: 768px) {
     width: 60vw;
@@ -57,8 +61,19 @@ body {
   }
 }
 
-.text-right{
-  @include media-breakpoint-up(sm) {
-  text-align: right;
+.text-right {
+  @media (min-width: 768px) {
+    text-align: right;
+  }
+}
+
+.title {
+  font-size: 4.6vw;
+  font-weight: 700;
+  padding-bottom: 20px;
+  span {
+    font-size: 45%;
+    display: block;
+    font-weight: 500;
   }
 }

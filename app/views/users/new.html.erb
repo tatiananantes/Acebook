@@ -1,36 +1,52 @@
- <h1> Please Sign Up </h1>
+ <div class="row">
+  
+  <div class="col-sm-4 col-lg-6">
+    
+    <h1 class="title"> <span>Welcome to</span> Acebook </h1>
+    <%= image_tag("acebook-homepage-transparent.png", width: 400, :class=>"img-fluid img-padding") %>
 
-<%= form_for @user do |form| %>
-  <div>
-    <%= form.label :username%><br>
-    <%= form.text_field :username %>
-    <% @user.errors.full_messages_for(:username).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+   
   </div>
+  <div class="col-sm-8 col-lg-6">
+  <div class="form-group-wrap">
+  <h2> Please Sign Up </h2>
 
-  <div>
-    <%= form.label :email %><br>
-    <%= form.email_field :email %>
-    <% @user.errors.full_messages_for(:email).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+  <%= form_for @user do |form| %>
+    <div class="form-group">
+      <%= form.label :username, class:"control-label"%><br>
+      <%= form.text_field :username, class: "form-control"%>
+      <% @user.errors.full_messages_for(:username).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div class="form-group">
+      <%= form.label :email, class:"control-label" %><br>
+      <%= form.email_field :email, class: "form-control" %>
+      <% @user.errors.full_messages_for(:email).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div class="form-group">
+      <%= form.label :password, class:"control-label" %><br>
+      <%= form.password_field :password, class: "form-control"  %>
+      <% @user.errors.full_messages_for(:password).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div class="form-group">
+      <%= form.label :avatar, "Choose a profile picture", class:"control-label" %>
+      <%= form.file_field :avatar, class: "form-control"  %>
+    </div>
+  
+    <div class="form-group">
+      <%= form.submit "Create Account", class: "btn btn-primary" %>
+    </div>
+  <% end %>
   </div>
-
-  <div>
-    <%= form.label :password %><br>
-    <%= form.password_field :password %>
-    <% @user.errors.full_messages_for(:password).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+  
   </div>
-
-  <div>
-    <%= form.label :avatar, "Choose a profile picture" %>
-    <%= form.file_field :avatar %>
-  </div>
-
-  <div>
-    <%= form.submit "Create Account" %>
-  </div>
-<% end %>
+ </div>
+ 
