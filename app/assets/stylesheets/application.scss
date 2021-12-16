@@ -35,6 +35,10 @@ body {
   height: 100%;
 }
 
+.img-padding {
+  padding: 20px 40px;
+}
+
 .form-group-wrap {
   background: white;
   border-radius: 8px;
@@ -63,11 +67,12 @@ body {
 }
 
 .title {
-  font-size: 3.6vw;
+  font-size: 4.6vw;
   font-weight: 700;
   padding-bottom: 20px;
   span {
+    font-size: 45%;
     display: block;
-    font-size: 68%;
+    font-weight: 500;
   }
 }
