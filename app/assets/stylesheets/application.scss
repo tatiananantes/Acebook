@@ -20,12 +20,13 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.navbar.bg-light {
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
   background: white;
   color: white;
+  box-shadow: 5px 0 5px -3px black;
 }
 
 .site-main-wrap {
