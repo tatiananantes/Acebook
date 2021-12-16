@@ -5,6 +5,14 @@ Rails.application.routes.draw do
     resources :comments, :likes 
   end
 
+  resources :albums do
+    resources :photos
+  end
+
+  resources :photos do
+    resources :comments, :likes 
+  end
+
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#delete'
