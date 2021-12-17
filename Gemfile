@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
+gem "aws-sdk-s3", require: false
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'acts_as_favoritor'
