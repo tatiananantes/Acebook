@@ -1,0 +1,15 @@
+<div class="center-block">
+<div class="form-group-wrap">
+
+<%= form_with model: [ @user, @album, @album.photos.build ], local: true do |form| %>
+   
+    <div class="form-group">
+    <%= form.label :image, class: "control-label"%>
+    <%= form.file_field :image,  class:"form-control", required: "true" %>
+  </div>
+    <div class="form-group">
+  <%= form.submit "Create!", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
+</div>

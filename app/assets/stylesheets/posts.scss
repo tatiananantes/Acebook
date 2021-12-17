@@ -57,6 +57,7 @@
 
 .post-container {
   width: 90vw;
+  max-width: 100%;
   margin: 0 auto;
   @media (min-width: 768px) {
     width: 60vw;
