@@ -81,7 +81,7 @@ body {
 }
 
 #flash {
-  .flash.alert {
+  .flash.alert, .flash.notice {
     position: fixed;
     bottom: 5%;
     background: rgba(67,118,212, 0.8);
