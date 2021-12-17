@@ -32,6 +32,7 @@
   .post-body {
     img {
       max-width: 100%;
+      width: 100%;
       margin-bottom: 10px;
     }
   }
@@ -57,6 +58,7 @@
 
 .post-container {
   width: 90vw;
+  max-width: 100%;
   margin: 0 auto;
   @media (min-width: 768px) {
     width: 60vw;

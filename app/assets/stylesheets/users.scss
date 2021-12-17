@@ -17,7 +17,7 @@
       color: #4376d4;
     }
   }
-  img {
+  .img-profile {
     height: 200px;
     width: 200px;
     background: white;
@@ -27,5 +27,26 @@
     overflow: hidden;
     margin-bottom: 15px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+.album-viewer {
+  padding: 20px 0;
+  width: 85%;
+  a {
+    display: block;
+  }
+  img {
+    width: 100%;
+  }
+  .album-cover {
+    box-shadow: 0 3px 4px -4px black;
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+    a {
+      color: #333;
+      text-decoration: none;
+    }
   }
 }

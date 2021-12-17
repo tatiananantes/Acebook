@@ -1,3 +1,50 @@
-<%=@album.name%>
+<h1><%= @album.name %></h1>
 
-This is an album
+
+<% if @user.id == session[:user_id]%>
+<div class="text-right">
+    <%= link_to "Add new photo to album", new_user_album_photo_path(@user, @album), :class => "btn btn-primary"%>
+  </div>
+<%end%>
+
+<div class= "row albums">
+    <% @album.photos.reverse.each do |photo| %>
+        <div class="col-sm-3">
+            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <%= image_tag photo.image.variant(resize_to_limit: [600, 600]), class: "img-fluid img-thumbnail" %>
+            </a>
+        </div>
+    <% end %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    var exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget;
+    // Extract info from data-bs-* attributes
+    var recipient = button.innerHTML;
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalBody = exampleModal.querySelector('.modal-body');
+
+    modalBody.innerHTML = recipient;
+    })
+
+</script>
