@@ -7,21 +7,37 @@
   <div class="col-sm-4 col-lg-5">
     <div class="profile-main">
       <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar.variant(resize_to_limit: [200, 200]), class: "img-fluid" %>
+        <%= image_tag @user.avatar.variant(resize_to_limit: [200, 200]), class: "img-fluid img-profile" %>
       <%end%>
-      <div>
+      <div style="width: 100%;">
         <h1 class="h3"> <%= @user.username %> </h1>
         <p>Member since: <%= @user.created_at.strftime("%d %B %G") %></p>
         <% if @user.id == session[:user_id]%>
           <%= link_to "Edit details", edit_user_path(@user) %>
         <%end%>
-        
-        <% @user.albums.reverse.each do |album| %>
-        <p><a href="/users/<%=@user.id%>/albums/<%=album.id%>"><%= album.name%></p></a>
-        <%end%>
+        <div class="row album-viewer">
+          <% if @user.albums.count > 0 %>
+            <div class="soft-top border-top">
+            <h3 class="h4">Albums</h3>
+            </div>
+          <% end %>
+          <% @user.albums.reverse.each do |album| %>
+            <% if album.photos.count > 0 %>
+              <div class="col-sm-3">
+                <div class="bg-white album-cover">
+                  <a href="/users/<%=@user.id%>/albums/<%=album.id%>">
+                    <%= image_tag album.photos[0].image.variant(resize_to_limit: [100, 100]), class: "img-fluid rounded" %>
+                    <p><%= album.name %></p>
+                  </a>
+                </div>
+              </div>
+            <%end%>
+          <%end%>
+        </div>
 
         <% if @user.id == session[:user_id]%>
           <%= link_to "Create album", new_user_album_path(@user) %>
+          <%= link_to "My albums", user_albums_path(@user) %>
         <%end%>
 
       </div>

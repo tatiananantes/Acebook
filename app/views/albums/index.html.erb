@@ -1,3 +1,9 @@
 <% @user.albums.reverse.each do |album| %>
-<p><%= album.name%></p>
+<p>
+  <a href="/users/<%=@user.id%>/albums/<%=album.id%>">
+    <%= album.name %>
+  </a>
+</p>
 <%end%>
+
+
