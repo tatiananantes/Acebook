@@ -27,7 +27,7 @@ class AlbumsController < ApplicationController
   end
 
   def find_user
-    @user = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:user_id])
   end
 
 end
